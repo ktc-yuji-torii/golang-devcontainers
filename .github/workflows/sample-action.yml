@@ -1,5 +1,8 @@
 on: [issues]
 
+permissions:
+    issues: write
+
 jobs:
   hello-world:
     runs-on: ubuntu-latest
