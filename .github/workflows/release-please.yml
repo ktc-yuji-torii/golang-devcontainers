@@ -14,14 +14,11 @@ jobs:
     release-please:
         runs-on: ubuntu-latest
         steps:
-            - run: echo "REPOSITORY_NAME=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_ENV
             - uses: actions/create-github-app-token@v1
               id: app-token
               with:
                 app-id: ${{ secrets.CREATE_APP_TOKEN_APP_ID }}
                 private-key: ${{ secrets.CREATE_APP_TOKEN_PRIVATE_KEY }}
-                owner: ${{ github.repository_owner }}
-                repositories: ${{ env.REPOSITORY_NAME }}
             - name: reelase-please
               uses: google-github-actions/release-please-action@v4
               with:
