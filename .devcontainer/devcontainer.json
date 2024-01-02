@@ -7,9 +7,9 @@
         "docker-compose.yml"
     ],
     "service": "devcontainer",
-    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+    "workspaceFolder": "/workspaces",
 	"features": {
-		"ghcr.io/devcontainers/features/go:1": {},
+        "ghcr.io/devcontainers/features/go:1": {},
 		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
 	},
 
@@ -18,6 +18,7 @@
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "sh .devcontainer/post-create.sh",
+    "postAttachCommand": "sh .devcontainer/post-attach.sh ${containerWorkspaceFolder}",
 
 	// Configure tool-specific properties.
     "customizations": {
