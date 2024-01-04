@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 git config pull.rebase false
 git config --global commit.template .gitmessage

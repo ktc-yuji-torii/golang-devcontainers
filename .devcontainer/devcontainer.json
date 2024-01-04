@@ -1,13 +1,13 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
-	"name": "golang-devcontainer",
+	"name": "${localWorkspaceFolderBasename}",
     "dockerComposeFile": [
         "../docker-compose.yml",
         "docker-compose.yml"
     ],
     "service": "devcontainer",
-    "workspaceFolder": "/workspaces",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	"features": {
         "ghcr.io/devcontainers/features/go:1": {},
 		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
@@ -17,8 +17,8 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "sh .devcontainer/post-create.sh",
-    "postAttachCommand": "sh .devcontainer/post-attach.sh ${containerWorkspaceFolder}",
+	"postCreateCommand": "bash .devcontainer/post-create.sh",
+    "postAttachCommand": "bash .devcontainer/post-attach.sh ${containerWorkspaceFolder}",
 
 	// Configure tool-specific properties.
     "customizations": {
