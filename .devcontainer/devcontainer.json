@@ -7,18 +7,19 @@
         "docker-compose.yml"
     ],
     "service": "devcontainer",
-	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-	"features": {
+    "remoteEnv": {
+        "HOST_DIR": "${localWorkspaceFolder}"
+      },
+    "initializeCommand": "bash .devcontainer/initialize.sh",
+    "postCreateCommand": "bash .devcontainer/post-create.sh",
+    "postAttachCommand": "bash .devcontainer/post-attach.sh ${containerWorkspaceFolder}",
+    "features": {
         "ghcr.io/devcontainers/features/go:1": {},
 		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "bash .devcontainer/post-create.sh",
-    "postAttachCommand": "bash .devcontainer/post-attach.sh ${containerWorkspaceFolder}",
 
 	// Configure tool-specific properties.
     "customizations": {
