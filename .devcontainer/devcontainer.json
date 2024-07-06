@@ -7,6 +7,7 @@
         "docker-compose.yml"
     ],
     "service": "devcontainer",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
     "remoteEnv": {
         "HOST_DIR": "${localWorkspaceFolder}"
       },
